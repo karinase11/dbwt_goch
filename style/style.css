@@ -1,0 +1,29 @@
+#left_col{
+  background: red;
+
+}
+
+#right_col{
+  background: green;
+}
+
+
+
+#ButtonsBox ul li{
+background: yellow;
+list-style-type: none;
+display: inline;
+}
+
+#registerBtn {
+  background: white;
+  display: list-item;
+  list-style-type: none
+}
+
+
+#loginBtn {
+  background: gray;
+  display: block;
+  list-style-type: none
+}
