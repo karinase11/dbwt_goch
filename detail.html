@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Detail</title>
+
+    <!-- Bootstrap -->
+    <link href="style/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="style/style.css" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">e-Mensa</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Start</a></li>
+      <li class="active"><a href="#">Produkte</a></li>
+      <li class="active"><a href="#">FH Aachen</a></li>
+      <li>
+        <form class="form-inline float-xs-left" action="index.html" method="post">
+          <input class="form-control" type="text" placeholder="FH-suche">
+          <button class="btn btn-outline-success" type="submit">search</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="row">
+ <div class="col-sm-4" id="left_col">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <input type="email" name="username" placeholder="username" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <input type="password" name="name" placeholder="password" class="form-control">
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Angemeldet bleiben
+        </label>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="loginBtn">Anmelden</button>
+
+      </div>
+
+    </div>
+
+    <button type="button" class="btn btn-success" id="registerButton">Registrieren</button>
+ </div>
+
+ <div class="col-sm-8" id="right_col">
+
+
+
+       <h2>Details für "Auflauf"</h2>
+
+       <img src="figures/auflauf_img.jpg" alt="auflauf detail image" id="detailImage"/>
+
+       Ein leckerer Maccaroniauflauf mit Tomaten und Zwiebeln. Dazu passt herforagend ein guter <a href="#">Wein</a>.
+
+       <div class="container col-sm-12" id="productlist">
+         <div class="container col-sm-8">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#description">Beschreibung</a></li>
+        <li><a data-toggle="tab" href="#zutaten">Zutaten</a></li>
+        <li><a data-toggle="tab" href="#rating">Bewertung</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="description" class="tab-pane fade in active">
+          <h3>Content Here</h3>
+
+        </div>
+        <div id="zutaten" class="tab-pane fade">
+            <!--<h3>Content Here</h3> -->
+        </div>
+        <div id="rating" class="tab-pane fade">
+            <!--<h3>Content Here</h3> -->
+        </div>
+
+    </div>
+
+
+         </div>
+         <div class="container col-sm-4">
+           <div class="container col-sm-12">
+             <h3 id="price">4,95€</h3>
+           </div>
+           <ul>
+           </ul>
+           <div class="container col-sm-4">
+             <input type="number" name="count" min="0" id="countspin">
+           </div>
+
+           <div class="container col-sm-8">
+              <button class="btn btn-outline-success" type="submit">Bestellen</button>
+           </div>
+
+
+         </div>
+
+
+       </div>
+
+
+
+   </div>
+ </div> <!-- divROW -->
+
+ <footer>
+   <ul class="nav navbar-nav">
+     <li class="active"><a href="#">Login</a></li>
+     <li class="active"><a href="#">Registrieren</a></li>
+     <li class="active"><a href="#">Impressum</a></li>
+     <li>
+   </ul>
+ </footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

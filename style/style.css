@@ -1,35 +1,66 @@
 body{
-  background: orange;
   margin: 0% 5% 0% 5% ;
 
 }
 
+ul li{
+  list-style-type: none;
+  text-align: center;
+}
+
+
 #left_col{
-  background: red;
 
 }
 
 #right_col{
-  background: green;
 }
 
 
 
 #ButtonsBox ul li{
-background: yellow;
 list-style-type: none;
 display: inline;
 }
 
 #registerBtn {
-  background: white;
   display: list-item;
   list-style-type: none
 }
 
 
 #loginBtn {
-  background: gray;
   display: block;
   list-style-type: none
+}
+
+#productDisplay{
+  list-style-type: none;
+
+
+}
+
+#productDisplay li{
+  display: inline;
+}
+
+#mainlogo{
+  width: 350px;
+}
+
+#productlist img{
+  width: 100%;
+
+}
+
+#detailImage{
+  width: 100%;
+}
+
+#countspin{
+  width: 100%;
+}
+
+#price{
+  text-align: center;
 }
