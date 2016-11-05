@@ -16,25 +16,26 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">e-Mensa</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="start.html">Start</a></li>
-      <li class="active"><a href="produkte.html">Produkte</a></li>
-      <li class="active"><a href="https://www.fh-aachen.de">FH Aachen</a></li>
-      <li>
-        <form class="form-inline float-xs-left" action="https://www.google.de./search" method="get">
-          <input type="hidden" name="as_sitesearch" value="https://www.fh-aachen.de">
-          <input class="form-control" type="text" placeholder="FH-suche" name="q">
-          <button class="btn btn-outline-success" type="submit">search</button>
-        </form>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <header>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">e-Mensa</a>
+            </div>
+                <ul class="nav navbar-nav">
+                <li class="active"><a href="start.html">Start</a></li>
+                <li class="active"><a href="produkte.html">Produkte</a></li>
+                <li class="active"><a href="https://www.fh-aachen.de">FH Aachen</a></li>
+                <li>
+                  <form class="form-inline float-xs-left" id="searchbar" action="index.html" method="post">
+                  <input class="form-control" type="text" placeholder="FH-suche">
+                  <button class="btn btn-outline-success" type="submit">search</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+    </nav>
+</header>
 
 
 <div class="row">
@@ -141,7 +142,7 @@
    <ul class="nav navbar-nav">
      <li class="active"><a href="#">Login</a></li>
      <li class="active"><a href="#">Registrieren</a></li>
-     <li class="active"><a href="#">Impressum</a></li>
+     <li class="active"><a href="impressum.html">Impressum</a></li>
      <li>
    </ul>
  </footer>

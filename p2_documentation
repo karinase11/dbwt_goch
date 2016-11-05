@@ -1,0 +1,36 @@
+<div>
+Kapselt HTML objekte. Diese lassen sich dadurch strukturiert platzieren
+
+<ul> <li></li>
+unsortierte Liste. Stellt liste unsortiert dar. punkte lassen sich durch list-style-type: none entfernen
+li ist ein list element
+
+id="anker"
+gibt einem HTML objekt einen Spezifischen namen. Erleichter zugriff über CSS
+
+
+<h1> Überschrifft
+Text mit großer schriftart. Mehrere schriftgrößen möglich
+<img> Bild
+bindet ein Bild in den quelltext ein
+
+Webseite Statisches HTML
+Für jedes Produkt das angezeigt werden soll muss eine eigene HTML seite erzeugt werden.
+Die 10 Produkte müssen manuell in die Produkte.html eingetragen werden. Zu jedem Produkt wird eine Detail Seite Erstellt
+
+
+GET / POST Target ?
+GET formulardaten werden an URL angehängt
+POST Daten werden direkt übertragen
+
+name ist der schlüssel um auf die Daten zuzugreifen
+
+postdata.php ist nicht erreichbar. Ping auf IP funktioniert. Script nur über FH Netz erreichbar ?
+
+
+ Color of FH Aachen
+  #00b5ad
+
+:hover
+
+:active

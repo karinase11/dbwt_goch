@@ -1,36 +1,38 @@
 body{
-  margin: 0% 5% 0% 5% ;
+  margin: 0% 10% 0% 10%;
 
 }
 
 ul li{
   list-style-type: none;
-  text-align: center;
+
 }
 
 
+#descText{
+  margin-top: 10%
+}
+
+a{
+  color: #00b5ad;
+}
 
 
-
-
-#ButtonsBox ul li{
+#ButtonsBox{
 list-style-type: none;
-display: inline;
-background-color: green;
-
+margin-top: 20%
 }
 
 #registerBtn {
-  display: inline;
   list-style-type: none;
-background-color: red;
+
 }
 
 
 #loginBtn {
-  display: list-item;
   list-style-type: none;
-  background-color: blue;
+  align-items: center;
+
 }
 
 #productDisplay{
@@ -44,12 +46,15 @@ background-color: red;
 }
 
 #mainlogo{
-  width: 350px;
+  width: 100%;
+}
+
+#searchbar{
+  margin: 2% 5% 0% 30%;
 }
 
 #productlist img{
   width: 100%;
-
 }
 
 #detailImage{
