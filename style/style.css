@@ -9,29 +9,28 @@ ul li{
 }
 
 
-#left_col{
 
-}
-
-#right_col{
-}
 
 
 
 #ButtonsBox ul li{
 list-style-type: none;
 display: inline;
+background-color: green;
+
 }
 
 #registerBtn {
-  display: list-item;
-  list-style-type: none
+  display: inline;
+  list-style-type: none;
+background-color: red;
 }
 
 
 #loginBtn {
-  display: block;
-  list-style-type: none
+  display: list-item;
+  list-style-type: none;
+  background-color: blue;
 }
 
 #productDisplay{
