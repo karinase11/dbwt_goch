@@ -5,50 +5,69 @@
 -- Tabellen löschen zu Beginn des Skripts
 -- beachten Sie die Lösch-Reihenfolge
 
+-- REMOVE N:M Relation Tables
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Produkt]') AND type in (N'U')) 
-DROP TABLE [Produkt]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[schreibtBewertung]') AND type in (N'U')) 
+DROP TABLE [schreibtBewertung]
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[BE-Benutzer]') AND type in (N'U')) 
-DROP TABLE [BE-Benutzer]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[KauftProdukt]') AND type in (N'U')) 
+DROP TABLE [KauftProdukt]
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hatZutat]') AND type in (N'U')) 
+DROP TABLE [hatZutat]
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Rechte]') AND type in (N'U')) 
-DROP TABLE [Rechte]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[BE-Nutzer-Rechte]') AND type in (N'U')) 
+DROP TABLE [BE-Nutzer-Rechte]
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[BefreundetmitFE]') AND type in (N'U')) 
+DROP TABLE [BefreundetmitFE]
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Bewertung]') AND type in (N'U')) 
-DROP TABLE [Bewertung]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Oberkategorie]') AND type in (N'U')) 
+DROP TABLE [Oberkategorie]
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[FE-Benutzer]') AND type in (N'U')) 
-DROP TABLE [FE-Benutzer]
-
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[FH-Angehörige]') AND type in (N'U')) 
-DROP TABLE [FH-Angehörige]
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[GAST]') AND type in (N'U')) 
-DROP TABLE [GAST]
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Student]') AND type in (N'U')) 
-DROP TABLE [Student]
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Mitarbeiter]') AND type in (N'U')) 
-DROP TABLE [Mitarbeiter]
-
-
+-- REMOVE Tables
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Preis]') AND type in (N'U')) 
 DROP TABLE [Preis]
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Zutat]') AND type in (N'U')) 
 DROP TABLE [Zutat]
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Student]') AND type in (N'U')) 
+DROP TABLE [Student]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Mitarbeiter]') AND type in (N'U')) 
+DROP TABLE [Mitarbeiter]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[GAST]') AND type in (N'U')) 
+DROP TABLE [GAST]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[FH-Angehörige]') AND type in (N'U')) 
+DROP TABLE [FH-Angehörige]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Rechte]') AND type in (N'U')) 
+DROP TABLE [Rechte]
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Zahlung]') AND type in (N'U')) 
 DROP TABLE [Zahlung]
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Bild]') AND type in (N'U')) 
-DROP TABLE [Bild]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Bewertung]') AND type in (N'U')) 
+DROP TABLE [Bewertung]
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[FE-Nutzer]') AND type in (N'U')) 
+DROP TABLE [FE-Nutzer]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[BE-Nutzer]') AND type in (N'U')) 
+DROP TABLE [BE-Nutzer]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Produkt]') AND type in (N'U')) 
+DROP TABLE [Produkt]
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Kategorie]') AND type in (N'U')) 
 DROP TABLE [Kategorie]
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Bild]') AND type in (N'U')) 
+DROP TABLE [Bild]
+
 
 -- Tabellen definieren
 

@@ -1,0 +1,3 @@
+﻿INSERT INTO Produkt (Name,Beschreibung,von,bis,[Bild_ID],[Kategorie_ID]) VALUES ('Schnitzel', 'Panade mit Fleisch','20161001 10:00:00 AM', '20170201 10:00:00 AM',3,3);
+INSERT INTO Produkt (Name,Beschreibung,von,bis,[Bild_ID],[Kategorie_ID]) VALUES ('WOK', 'Kalter Reis und Reste','20161001 10:00:00 AM','20170201 10:00:00 AM',3,2);
+INSERT INTO Produkt (Name,Beschreibung,von,bis,[Bild_ID],[Kategorie_ID]) VALUES ('Pudding', 'Im Becher 200ml','20161001 10:00:00 AM','20170201 10:00:00 AM',3,4);
