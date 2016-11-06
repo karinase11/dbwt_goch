@@ -231,3 +231,5 @@ ID INT IDENTITY(1,1) PRIMARY KEY,
 -- Tabellen ändern (fügen Sie hier CHECK und andere Constraints, falls Sie sie nicht bei der Definition verwenden können)
 
 -- ALTER TABLE [beispiel] ADD CONSTRAINT [constrname] CHECK (1=1)
+
+ALTER TABLE Zahlung ADD CONSTRAINT[STATUS_ID] check( Status in(10,20,30))
