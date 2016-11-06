@@ -52,7 +52,7 @@ DROP TABLE [Kategorie]
 
 -- Tabellen definieren
 
-CREATE TABLE [BE-Benutzer]
+CREATE TABLE [BE-Nutzer]
 (
 ID INT IDENTITY(1,1) PRIMARY KEY not null,
 [E-mail] VARCHAR(200) NOT NULL,
@@ -63,6 +63,7 @@ ID INT IDENTITY(1,1) PRIMARY KEY not null,
 [Hash] char(24) not null,
 [SALT] char(32) not null,
 Stretch int not null,
+
 )
 
 CREATE TABLE [Rechte]
@@ -77,13 +78,15 @@ ID INT IDENTITY(1,1) PRIMARY KEY not null,
 [Bemerkung] varchar(140) not null,
 [Note] tinyint check (Note in(1,2,3,4,5)) not null,
 [Sichtungen] int not null default 0,
+[BE-Nutzer_ID] int references [BE-Nutzer](ID) not null,
 )
 
-CREATE TABLE [FE-Benutzer]
+CREATE TABLE [FE-Nutzer]
 (
 ID INT IDENTITY(1,1) PRIMARY KEY,
 Aktiv bit not null,
 [Letzter Login] timestamp not null,
+[BE-Nutzer_ID] int foreign key references [BE-Nutzer](ID), -- BE benutzer legt FE nutzer an
 
 
 [Algo] varchar(6) check( Algo in('sha1','sha256')) not null,
@@ -94,6 +97,7 @@ Stretch int not null,
 
 CREATE TABLE[FH-Angehörige]
 (
+[FE-Nutzer_ID] int references [FE-Nutzer](ID) ON DELETE CASCADE PRIMARY KEY not null,
 [Name] varchar(100) not null,
 [Fachbereich] int not null,
 [E-Mail] varchar(150) UNIQUE not null,
@@ -101,6 +105,7 @@ CREATE TABLE[FH-Angehörige]
 
 CREATE TABLE [Gast]
 (
+[FE-Nutzer_ID] int references [FE-Nutzer](ID) ON DELETE CASCADE PRIMARY KEY not null,
 [Name] varchar(100) not null,
 von DATETIME not null,
 bis DATETIME not null,
@@ -108,26 +113,45 @@ bis DATETIME not null,
 
 CREATE TABLE [Mitarbeiter]
 (
+[FH-Angehörige_ID] int references [FH-Angehörige]([FE-Nutzer_ID]) ON DELETE CASCADE PRIMARY KEY not null,
 [Büro] varchar(10),
 [MA-Nummer] int UNIQUE check([MA-Nummer] >=10000 and [MA-Nummer] <= 9999999) not null,
 )
 
 CREATE TABLE [Student]
 (
+[FH-Angehörige_ID] int references [FH-Angehörige]([FE-Nutzer_ID]) ON DELETE CASCADE PRIMARY KEY not null,
 [Studiengang] varchar(100),
 [MA-Nummer] int UNIQUE check([MA-Nummer] >=10000 and [MA-Nummer] <= 9999999) not null,
 )
 
+CREATE TABLE [Bild]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[Unter-schrift] varchar(100) not null,
+[Binar-daten] varbinary(max) not null, 
+[Alt-Text] varchar(250) not null,
+Title varchar(100) not null,
+)
+
+CREATE TABLE [Kategorie]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[Bild_ID] int references Bild(ID),
+Bezeichnung varchar(100) not null,
+)
 -- Produkte
 -- ID, Kategorie_ID-FK, Name, Beschreibung, von timestamp, bis timestamp
 
 CREATE TABLE [Produkt] ( 
 	ID INT IDENTITY(1,1) PRIMARY KEY,
-	Kategorie_ID INT not null,
 	Name VARCHAR(50) not null,
 	Beschreibung VARCHAR(50) not null,
 	von DATETIME,
-	bis DATETIME
+	bis DATETIME,
+	[Bild_ID] int references Bild(ID) not null,
+	[Kategorie_ID] int references Kategorie(ID),
+
 ) 
 
 
@@ -135,7 +159,8 @@ CREATE TABLE [Preis]
 (
 ID INT IDENTITY(1,1) PRIMARY KEY,
 [Rolle] varchar(15) check(Rolle in ('Gast','Mitarbeiter','Student'))  not null,
-Preis money not null
+Preis money not null,
+[Produkt_ID] int references Produkt(ID) not null,
 )
 
 CREATE TABLE [Zutat]
@@ -153,13 +178,53 @@ AutServer varchar(30) not null,
 Betrag money not null
 )
 
-CREATE TABLE [Bild]
+
+
+-- N:M RELATIONEN
+
+CREATE TABLE[schreibtBewertung]
 (
 ID INT IDENTITY(1,1) PRIMARY KEY,
-[Unter-schrift] varchar(100) not null,
-[Binar-daten] varbinary(max) not null, 
-[Alt-Text] varchar(250) not null,
-Title varchar(100) not null,
+[FH-Angehörige_ID] int references [FH-Angehörige]([FE-Nutzer_ID]) not null,
+[Produkt_ID] int references Produkt(ID) not null,
+[Bewertung_ID] int references Bewertung(ID) not null,
+)
+
+CREATE TABLE[KauftProdukt]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[FE-Nutzer_ID] int references [FE-Nutzer](ID) not null,
+[Produkt_ID] int references Produkt(ID) not null,
+[Zahlung_ID] int references Zahlung(ID) not null,
+)
+
+
+CREATE TABLE [hatZutat]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[Zutat_ID] int references Zutat(ID) not null,
+[Produkt_ID] int references Produkt(ID) not null,
+)
+
+CREATE TABLE [BE-Nutzer-Rechte]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[BE-Nutzer_ID] int references [BE-Nutzer](ID) not null,
+[Rechte_ID] int references Rechte(ID) not null,
+)
+
+CREATE TABLE [BefreundetmitFE]
+(
+[Befreundet_ID] int references [FE-Nutzer](ID) not null,
+[Freunde_ID] int references [FE-Nutzer](ID) not null,
+)
+
+
+CREATE TABLE [Oberkategorie]
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+[OberKategorie1_ID] int references [Kategorie](ID) not null,
+[OberKategorie2_ID] int references [Kategorie](ID) not null,
 )
 
 
