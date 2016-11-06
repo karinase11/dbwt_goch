@@ -1,4 +1,4 @@
-<div>
+﻿<div>
 Kapselt HTML objekte. Diese lassen sich dadurch strukturiert platzieren
 
 <ul> <li></li>
@@ -28,13 +28,14 @@ name ist der schlüssel um auf die Daten zuzugreifen
 postdata.php ist nicht erreichbar. Ping auf IP funktioniert. Script nur über FH Netz erreichbar ?
 
 
- Color of FH Aachen
+Color of FH Aachen
   #00b5ad
 
 :hover
+Der Hover selector wird immer dann ausgeführt wenn die Maus über einem Objekt liegt.Dadurch lassen sich links und andere objekte einfärben
 
 :active
-
+Wird ein Link angeklickt ist wird der active selector ausgeführt
 
 
 Optionale Attribute und Primärschlüssel
@@ -82,18 +83,18 @@ ZUTAT_ID int references zutat(ID) not null,
 
 Generalisierung für FE Benutzer ( Angehörige,Gäste... ) ist bereits angedeutet.
 Was muss geändert werden um diese Beziehung abzudecken?
-Jede der Tabellen muss eine referenz auf einen FE nutzer besitzen
+Jede der Tabellen muss eine referenz auf einen FE nutzer besitzen.
 
-Welche Vor/Nachteile hat diese abbildung
-Jeder FE nutzer kann ein ein Status zugewiesen werden. Wird ein FE Nutzer gelöscht
-werd automatisch auch die abhängigkeiten entfernt.
+Welche Vor/Nachteile hat diese Abbildung?
+Jeder FE nutzer kann ein ein Status zugewiesen werden. Wird ein FE Nutzer gelöscht,
+wird automatisch auch die abhängigkeiten entfernt.
 
 Wird jedoch ein Student gelöscht bleibt der FENutzer immer noch bestehen. Er verliert nur seinen Status Student.
 
-Wie verhalten sich die Primärschlüssel der Subtypen
+Wie verhalten sich die Primärschlüssel der Subtypen?
 Sie Sind referenzen auf ihre Parent Tabellen.
 
-Was bewirkt das Schlüsselwort GO in MSSQL
+Was bewirkt das Schlüsselwort GO in MSSQL?
 Signalisiert das Ende eines Batches von SQL Anweisungen für SQLSERVER Helper Tools
 
 
@@ -127,12 +128,13 @@ Referenziert auf einen PRIMARY KEY in einer anderen Tabelle
 
     SET DEFAULT
     Bei Löschung wird wert auf DEFAULT gesetzt
+
 Anbindung über VS
 
 Was muss getan werden um Datensätze hinzuzufügen?
 Da FH Angehörige in relation zu FE Benutzer stehen und diese wiederum in relation zu BE Benutzer,
 muss zu begin ein BE Benutzer angelegt werde.
-Dieser BE user richtet dann die FE user an
+Dieser BE-Nutzer richtet dann die FE user an
 Mithilfe der IDs der FE user können nun FH Angehörige angelegt werden.
 
 Kaskadiertes Löschen
@@ -140,8 +142,6 @@ Kaskadiertes Löschen
 Wie müssen die Spezielisierten Tabellen abgeändert werden um Kaskadiertes Löschen zu unterstützen?
 In den Tabellen Mitarbeiter und Student muss die FE NutzerID hinterlegt sein.
 Und mithilfe von DELETE CASCADE muss der Student/Mitarbeiter entfernt werden wenn der FE-Nutzer gelöscht wird
-
-
 
 Was geschieht wenn ein Student gelöscht wird?
 Der FE-Nutzer mit der ID des Studenten verliert seinen Status Student
