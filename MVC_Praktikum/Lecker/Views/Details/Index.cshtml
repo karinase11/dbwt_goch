@@ -1,0 +1,138 @@
+﻿@using System.Collections
+@using System.Configuration
+@using System.Data.SqlClient
+@using System.Data.SqlTypes
+
+@model Lecker.Models.Details
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-sm-4" id="left_col">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="email" name="username" placeholder="username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="name" placeholder="password" class="form-control">
+            </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Angemeldet bleiben
+                </label>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="loginBtn">Anmelden</button>
+
+        </div>
+
+    </div>
+
+    <button type="button" class="btn btn-success" id="registerButton">Registrieren</button>
+</div>
+
+<div class="col-sm-8" id="right_col">
+
+    @{
+        int count = 0;
+
+        
+        
+        
+           var productID = (List<int>)ViewData["pID"];
+           var productName = (List<string>)ViewData["pName"];
+            var productdescription = (List<String>)ViewData["pDescription"];
+            var imageID = (List<int>)ViewData["pImageID"];
+            var productPrice = (List<SqlMoney>)ViewData["pPrice"];
+        
+        
+        
+        
+        if (productName.Count > 0)
+        {
+
+            
+        }
+
+
+
+        <text>
+
+
+            <h2>Details für "@productName[count]"</h2>
+
+            <img src="figures/auflauf_img.jpg" alt="auflauf detail image" id="detailImage" />
+
+            @productdescription[count]
+
+            <div class="container col-sm-12" id="productlist">
+                <div class="container col-sm-8">
+                    <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#description">Beschreibung</a></li>
+                        <!--TODO ADD ZUTATEN TO QUERY -->
+                        <li><a data-toggle="tab" href="#zutaten">Zutaten</a></li>
+                        <li class="active"><a data-toggle="tab" href="#rating">Bewertung</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="description" class="tab-pane fade in active">
+                            <!--<h3>Content Here</h3> -->
+                            <form id="ratingForm" action="http://149.201.48.80/playground/postdata.php" method="post">
+                                <label for="bemerkung">
+                                    Bemerkung:
+                                    <textarea id="bemerkung" rows="3" cols="50"></textarea>
+                                </label>
+                                <label for="benutzer">
+                                    Name:
+                                    <input id="benutzer" name="benutzer">
+                                </label>
+                                <label for="bewertung">
+                                    Bewertung:
+                                    <input id="bewertung" name="bewertung">
+                                </label>
+                                <input type="hidden" name="matrikelnummer" value="123456">
+                                <input type="submit">
+                            </form>
+
+
+                        </div>
+                        <div id="zutaten" class="tab-pane fade">
+
+                        </div>
+                        <div id="rating" class="tab-pane fade">
+                            <h3>Content Here</h3>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="container col-sm-4">
+                    <div class="container col-sm-12">
+                        <h3 id="price">@productPrice[count]</h3>
+                    </div>
+                    <ul></ul>
+                    <div class="container col-sm-4">
+                        <input type="number" value="1" name="count" min="0" id="countspin">
+                    </div>
+
+                    <div class="container col-sm-8">
+
+                        @if (productPrice.Count >= 0)
+                        {
+                            <button class="btn btn-outline-success" type="submit">Bestellen</button>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </text>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿@using System;
+@using System.Collections;
+@using System.Data;
+@using System.Web;
+
+@model Lecker.Models.Start
+
+@{
+    ViewBag.Title = "Start";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{/*var products = (Produkte)ViewData["test"];*/}
+
+<h2>Start : @ViewData["test"]</h2>
+
+
+<div class="container col-sm-4" id="left_col">
+    <img src="figures/mensa_logo.jpg" alt="emensaLogo" id="mainlogo" />
+</div>
+
+<div class="col-sm-8" id="right_col">
+
+    <div class="col-sm-12" id="descText">
+        <h2>E-Mensa ist ein Portal zum Vorbestellen von Gerichten und zum Verabreden mit Kommilitonen und Freunden</h2>
+
+        @{
+
+            if (Session["uName"] != "")
+            {
+                <text> Willkommen @Session["uName"] als @Session["role"]  </text>
+
+            }
+        }
+    </div>
+
+    <div class="col-sm-12" id="ButtonsBox">
+
+        <div class="col-sm-6" id="registerBtn">
+
+            <ul>
+                <li>Neu Hier und student</li>
+                <li><button type="button" class="btn btn-primary">Registrieren</button></li>
+            </ul>
+
+        </div>
+
+        <div class="col-sm-6" id="loginBtn">
+
+            <ul>
+                <li>Wieder Hungrig</li>
+                <li><button type="button" class="btn btn-primary">Anmelden</button></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="col-sm-12" id="betaDisclaimer">
+        e-Mensa ist im Beta Stadium und kann aktuell nicht für Bestellungen in einerder vielen Mensen verwendet werden.
+    </div>
+
+
+
+</div>
+

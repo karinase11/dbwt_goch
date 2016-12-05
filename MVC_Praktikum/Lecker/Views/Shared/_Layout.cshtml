@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="style/style.css" rel="stylesheet">
+
+    @using System.Web.Helpers
+
+
+
+    @RenderSection("head", required: false) @* optionale Section. Sections liegen im aufrufenden Dokument bei *@
+</head>
+
+<body>
+
+
+
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">e-Mensa</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Start", "Index", "Start", new { test = "testGet" },null)</li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Produkte <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Alle Speisen", "Index", "Produkte", new { kategorie = 2 }, null)
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <!--<li>@@Html.ActionLink("Schnitzel","Detail",new { kategorie=1})</li>-->
+                            <li>@Html.ActionLink("Schnitzel", "Index", "Details", new { produkt = 11 }, null)</li>
+                            <li>@Html.ActionLink("Wok", "Index", "Details", new { produkt = 12 }, null)</li>
+                            <li>@Html.ActionLink("Pudding", "Index", "Details", new { produkt = 13 }, null)</li>
+                            <li>@Html.ActionLink("Eis", "Index", "Details", new { produkt = 22 }, null)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="active"><a href="https://www.fh-aachen.de">FH Aachen</a></li>
+                    <li>
+                        <form class="form-inline float-xs-left" id="searchbar" action="index.html" method="post">
+                            <input class="form-control" type="text" placeholder="FH-suche">
+                            <button class="btn btn-outline-success" type="submit">search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="row">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <ul class="nav navbar-nav">
+            <li class="active">@Html.ActionLink("Login", "Index", "Login", null, null)</li>
+            <li class="active">@Html.ActionLink("Registrieren", "Index", "Register", null, null)</li>
+            <li class="active">@Html.ActionLink("Impressum", "Index", "Impressum", null, null)</li>
+            <li> @DateTime.Now </li>
+            <li> @Session["uName"]</li>
+            <li> @Session["role"]</li>
+        </ul>
+    </footer>
+
+</body>
+</html>

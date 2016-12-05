@@ -1,0 +1,70 @@
+body{
+  margin: 0% 10% 0% 10%;
+
+}
+
+ul li{
+  list-style-type: none;
+
+}
+
+
+#descText{
+  margin-top: 10%
+}
+
+a{
+  color: #00b5ad;
+}
+
+
+#ButtonsBox{
+list-style-type: none;
+margin-top: 20%
+}
+
+#registerBtn {
+  list-style-type: none;
+
+}
+
+
+#loginBtn {
+  list-style-type: none;
+  align-items: center;
+
+}
+
+#productDisplay{
+  list-style-type: none;
+
+
+}
+
+#productDisplay li{
+  display: inline;
+}
+
+#mainlogo{
+  width: 100%;
+}
+
+#searchbar{
+  margin: 2% 5% 0% 30%;
+}
+
+#productlist img{
+  width: 100%;
+}
+
+#detailImage{
+  width: 100%;
+}
+
+#countspin{
+  width: 100%;
+}
+
+#price{
+  text-align: center;
+}

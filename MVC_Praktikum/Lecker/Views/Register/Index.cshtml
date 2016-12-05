@@ -1,0 +1,57 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using System.Web;
+@using System.Web.Mvc;
+
+@model Lecker.Models.Register
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@ViewData["lastuName"]
+
+
+@using (Html.BeginForm("Index", "Register"))
+{
+    <p>@Html.DropDownList("roleList")</p>
+    <p>Username: @Html.TextBox("uname", ViewData["lastuName"])</p>
+    <p>passwd: @Html.TextBox("passwd", null, new { type = "password" })</p>
+    <p> passwdRepeat:@Html.TextBox("passwdRpt", null, new { type = "password" })</p>
+    <p> Fachbereich:@Html.TextBox("fachbereich", ViewData["lastfachbereich"])</p>
+    <p> E-Mail:@Html.TextBox("eMail", ViewData["lasteMail"])</p>
+
+    <p> Büro²:@Html.TextBox("buero", ViewData["lastbuero"])</p>
+    <p> Studiengang³:@Html.TextBox("studiengang", ViewData["laststudiengang"])</p>
+    <input type="submit" value="Submit" />
+    <br /><br /><br />
+    <text>
+        ² benötigt für Mitarbeiter
+        <br />
+        ³ benötigt für Student
+    </text>
+    if (Session["RegiSuccess"] != null)
+    {
+        if (Session["RegiSuccess"] == "juhu")
+        {
+            <div class="alert alert-success">
+                <strong>Success!</strong> Everything is fine.
+            </div>
+            Session["RegiSuccess"] = "";
+        }
+    }
+    if (Session["PasswordFail"] != null)
+    {
+        if (Session["PasswordFail"].ToString() == "weak")
+        {
+            <div class="alert alert-danger">
+                <strong>Password is too weak!</strong> Please try something else.
+            </div>
+            Session["PasswordFail"] = "";
+        }
+    }
+}
